@@ -1,0 +1,16 @@
+{
+  "name": "monoculus-openui5",
+  "version": "1.0.0",
+  "description": "A little template to work with openui5 locally",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "express": "^4.16.2",
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Iván Lynch",
+  "license": "MIT"
+}
