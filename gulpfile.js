@@ -2,6 +2,7 @@ var gulp = require('gulp');
 
 gulp.task('OpenUI5 Resources', function () {
     gulp.src(["" +
+        /* Aca tienen que agregar las rutas de las dependencias que se generaron en bower.json */
         "bower_components/openui5-sap.ui.core/resources/**/*",
         "bower_components/openui5-sap.m/resources/**/*",
         "bower_components/openui5-sap.ui.layout/resources/**/*",
