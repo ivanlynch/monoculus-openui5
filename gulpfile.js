@@ -13,4 +13,21 @@ gulp.task('OpenUI5 Resources', function () {
         .pipe(gulp.dest("frontend/resources"));
 });
 
-gulp.task('default', ["OpenUI5 Resources"]);
+var ui5preload = require('gulp-ui5-preload');
+var uglify = require('gulp-uglify');
+var gulpif = require('gulp-if');
+
+gulp.task('OpenUI5 Preload', function(){
+    return gulp.src([
+        'frontend/**/**.+(js|xml)','!frontend/Component-preload.js', '!frontend/gulpfile.js', '!frontend/model/metadata.xml'
+    ])
+    .pipe(gulpif('frontend/**/*.js', uglify()))
+    .pipe(ui5preload({
+        base : '.',
+        namespace : 'frontend/monoculus'
+    }))
+    .pipe(gulp.dest('frontend'))
+});
+
+
+gulp.task('default', ["OpenUI5 Resources", "OpenUI5 Preload"]);
