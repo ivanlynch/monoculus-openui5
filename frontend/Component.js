@@ -1,39 +1,30 @@
 sap.ui.define([
-    //importa las dependencias
-    'sap/ui/core/UIComponent',
+    "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/resource/ResourceModel"
-
-], function(UIComponent) {
-    
-    'use strict';
-    
+], function (UIComponent, JSONModel, ResourceModel) {
+    "use strict";
     return UIComponent.extend("monoculus.Component", {
         metadata: {
-            rootView : "monoculus.view.App"
+            rootView: "monoculus.view.App"
         },
-        init : function(){
-
-            //Llama a la funcion init del padre
+        init: function () {
+            // call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
-
-            // Setea el modelo
+            // set data model
             var oData = {
-                recipient : {
-                    name : "World"
+                recipient: {
+                    name: "World"
                 }
-            },
-            
+            };
             var oModel = new JSONModel(oData);
             this.setModel(oModel);
 
-            //Sea el i18n
+            // set i18n model
             var i18nModel = new ResourceModel({
-                bundleName : "monoculus.i18n.i18n"
+                bundleName: "monoculus.i18n.i18n"
             });
-
             this.setModel(i18nModel, "i18n");
         }
     });
-
 });
